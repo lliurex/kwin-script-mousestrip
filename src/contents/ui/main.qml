@@ -130,6 +130,12 @@ Item {
         service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
 
+	KWinComponents.ShortcutHandler {
+		name: "Toggle MouseStrip"
+		text: "Shows or hides MouseStrip"
+		sequence: 'Meta+Ctrl+S'
+		onActivated: reloadStrip(!show)
+	}
 
     Component.onCompleted: {
        // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
