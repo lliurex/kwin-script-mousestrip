@@ -32,6 +32,7 @@ Item {
     property color rBorderColor: "yellow"
     property int borderHeight: 14
     property bool fillBorder: false
+	property bool outputOnly:true
     property bool show: true
 
     function reloadStrip(show=true){
@@ -132,13 +133,13 @@ Item {
 
 	KWinComponents.ShortcutHandler {
 		name: "Toggle MouseStrip"
-		text: "Shows or hides MouseStrip"
-		sequence: 'Meta+Ctrl+S'
+		text: "Shows or hides the read strip"
+		sequence: 'Meta+Ctrl+M'
 		onActivated: reloadStrip(!show)
 	}
 
+
     Component.onCompleted: {
-       // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
         reloadStrip(true);
     }
 }
