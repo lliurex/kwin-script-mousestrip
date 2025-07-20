@@ -28,7 +28,7 @@ kpackagetool6 --type=KWin/Script -i src/
 cd /tmp
 git clone https://github.com/lliurex/kwin-script-mousestrip
 cd mousestrip
-cp -r  src/ ~/.local/share/kwin/scripts
+cp -r  src/ ~/.local/share/kwin/scripts/mousestrip
 ````
 
 
