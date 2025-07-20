@@ -13,14 +13,14 @@ Clone the repo and install the content of src/ with kpackagetool
 cd /tmp
 git clone https://github.com/lliurex/kwin-script-mousestrip
 cd mousestrip
-kpackagetool5 --install src/
+kpackagetool5 -i src/
 ````
 * Plasma 6
 ```
 cd /tmp
 git clone https://github.com/lliurex/kwin-script-mousestrip
 cd mousestrip
-kpackagetool6 ---type=KWin/Script -install src/
+kpackagetool6 --type=KWin/Script -i src/
 ````
 
 ### Manually
