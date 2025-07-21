@@ -24,11 +24,11 @@ Item {
     }
 
     property color bkgColor: "black"
-    property int stripOpacity: 15
+    property double stripOpacity: 15
     property color rColor: "black"
     property int stripHeight: 2
     property color borderColor: "yellow" 
-    property int borderOpacity: 30
+    property double borderOpacity: 30
     property color rBorderColor: "yellow"
     property int borderHeight: 14
     property bool fillBorder: false
@@ -48,16 +48,15 @@ Item {
     }
     
     function readConfig(){
-        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,0.1));
-        stripOpacity= KWin.readConfig("StripOpacity",20);
-        rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,stripOpacity/100);
+        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,1));
+        stripOpacity= KWin.readConfig("StripOpacity",20)/100;
+        rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,1.0);
         stripHeight= KWin.readConfig("StripHeight",3);
-        borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
-        borderOpacity= KWin.readConfig("BorderOpacity",20);
+	    borderOpacity= KWin.readConfig("BorderOpacity",20)/100;
+		if (borderOpacity>=1) borderOpacity=0.99;
+        borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,borderOpacity));
 		/* If set to 100 graphics get corrupted */
-        if (borderOpacity>99)
-           borderOpacity=99;
-        rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
+        rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity);
         borderHeight= KWin.readConfig("BorderHeight",2);
         fillBorder= KWin.readConfig("FillBorder",false);
     }
@@ -75,16 +74,20 @@ Item {
        BorderStripTop=mainItemLoaderTop.item;
        BorderStripTop.height=borderHeight;
        BorderStripTop.color=rBorderColor;
+       BorderStripTop.opacity=borderOpacity;
        BorderStripTop.y=0;
        BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoaderBottom.source = "borderB.qml";
        BorderStripBottom=mainItemLoaderBottom.item;
        BorderStripBottom.height=borderHeight;
        BorderStripBottom.color=rBorderColor;
+       BorderStripBottom.opacity=borderOpacity;
+	   console.log("Color: "+rBorderColor);
        BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
-       ReadStrip.color=root.rColor;
+       ReadStrip.color=rColor;
+	   ReadStrip.opacity=stripOpacity;
        ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
        ReadStrip.width= KWinComponents.Workspace.workspaceWidth;
     }
