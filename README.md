@@ -4,16 +4,35 @@ The main purpose is to help focusing attention on the zone of the screen where t
 
 ## Install
 
+### With kpackagetool
+
 Clone the repo and install the content of src/ with kpackagetool
 
+* Plasma 5
 ```
 cd /tmp
-git clone https://github.com/juanma1980/mousestrip/
+git clone https://github.com/lliurex/kwin-script-mousestrip
 cd mousestrip
-kpackagetool5 --install src/
+kpackagetool5 -i src/
+````
+* Plasma 6
+```
+cd /tmp
+git clone https://github.com/lliurex/kwin-script-mousestrip
+cd mousestrip
+kpackagetool6 --type=KWin/Script -i src/
 ````
 
-After enabled the visiblity of the strip is controlled with Ctrl+Meta+M (meta is also knowed as "win key").
+### Manually
+```
+cd /tmp
+git clone https://github.com/lliurex/kwin-script-mousestrip
+cd mousestrip
+cp -r  src/ ~/.local/share/kwin/scripts/mousestrip
+````
+
+
+After enabled the visiblity of the strip is controlled with Ctrl+Meta+S (meta is also knowed as "win key").
 
 For changes to be applied is mandatory - until implemented - to disable/enable the script.
 
