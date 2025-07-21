@@ -141,7 +141,6 @@ Item {
 		onActivated: reloadStrip(!show)
 	}
 
-
     Component.onCompleted: {
         reloadStrip(true);
     }
