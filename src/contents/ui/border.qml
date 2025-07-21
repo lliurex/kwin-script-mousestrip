@@ -3,8 +3,8 @@
     SPDX-FileCopyrightText: 2024 juanma1980 <juanma1980@gmail.com>
     SPDX-License-Identifier: GPL-3.0
 */
-import QtQuick 2.0;
-import QtQuick.Window 2.0;
+import QtQuick 2.12;
+import QtQuick.Window 2.12;
 
 Window {
     id: borderTop
@@ -16,8 +16,9 @@ Window {
 	Rectangle {
 		id:rect
 		anchors.fill:parent
-		color:borderTop.color
 		visible:true
+		color:borderTop.color
+		opacity:parent.opacity
 	}
     Component.onCompleted: {
         borderTop.show();
