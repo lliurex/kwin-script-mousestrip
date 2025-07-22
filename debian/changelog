@@ -1,6 +1,7 @@
-kwin-script-mousestrip (1.3-1llx23) jammy; urgency=medium
+kwin-script-mousestrip (1.4.1-0llx23) jammy; urgency=medium
 
   * Added translations
+  * Improved opacity of borders
 
  -- Juanma1980 <juanma1980@gmail.com>  Fri, 20 Dec 2024 07:23:31 +0100
 
