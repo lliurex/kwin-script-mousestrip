@@ -1,3 +1,9 @@
+kwin-script-mousestrip (1.4.1-llx25) noble; urgency=medium
+
+  * Improved opacity of borders
+
+ -- Juanma1980 <juanma1980@gmail.com>  Tue, 22 Jul 2025 10:32:44 +0200
+
 kwin-script-mousestrip (1.2.2lliurex25) noble; urgency=medium
 
   * Noble release
