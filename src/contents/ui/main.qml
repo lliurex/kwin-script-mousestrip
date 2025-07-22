@@ -4,10 +4,11 @@
     SPDX-License-Identifier: GPL-3.0
 */
 
+
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import QtQuick.Controls 2.12
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.plasma.core 2.0 as PlasmaCore;
 import org.kde.kwin 3.0 as KWinComponents
 
 Item {
@@ -24,14 +25,15 @@ Item {
     }
 
     property color bkgColor: "black"
-    property int stripOpacity: 15
+    property double stripOpacity: 15
     property color rColor: "black"
     property int stripHeight: 2
     property color borderColor: "yellow" 
-    property int borderOpacity: 30
+    property double borderOpacity: 30
     property color rBorderColor: "yellow"
     property int borderHeight: 14
     property bool fillBorder: false
+	property bool outputOnly:true
     property bool show: true
 
     function reloadStrip(show=true){
@@ -47,17 +49,15 @@ Item {
     }
     
     function readConfig(){
-        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,0.1));
-        stripOpacity= KWin.readConfig("StripOpacity",20);
-		if (stripOpacity>99)
-			stripOpacity=99;
-        rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,stripOpacity/100);
+        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,1));
+        stripOpacity= KWin.readConfig("StripOpacity",20)/100;
+        rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,1.0);
         stripHeight= KWin.readConfig("StripHeight",3);
-        borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
-        borderOpacity= KWin.readConfig("BorderOpacity",20);
-		if (borderOpacity>99)
-			borderOpacity=99;
-        rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
+	    borderOpacity= KWin.readConfig("BorderOpacity",20)/100;
+		if (borderOpacity>=1) borderOpacity=0.99;
+        borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,borderOpacity));
+		/* If set to 100 graphics get corrupted */
+        rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity);
         borderHeight= KWin.readConfig("BorderHeight",2);
         fillBorder= KWin.readConfig("FillBorder",false);
     }
@@ -75,18 +75,20 @@ Item {
        BorderStripTop=mainItemLoaderTop.item;
        BorderStripTop.height=borderHeight;
        BorderStripTop.color=rBorderColor;
-       BorderStripTop.opacity=borderOpacity/100;
+       BorderStripTop.opacity=borderOpacity;
        BorderStripTop.y=0;
        BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoaderBottom.source = "borderB.qml";
        BorderStripBottom=mainItemLoaderBottom.item;
        BorderStripBottom.height=borderHeight;
        BorderStripBottom.color=rBorderColor;
-       BorderStripBottom.opacity=borderOpacity/100;
+       BorderStripBottom.opacity=borderOpacity;
+	   console.log("Color: "+rBorderColor);
        BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
-       ReadStrip.color=root.rColor;
+       ReadStrip.color=rColor;
+	   ReadStrip.opacity=stripOpacity;
        ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
        ReadStrip.width= KWinComponents.Workspace.workspaceWidth;
     }
@@ -135,13 +137,13 @@ Item {
 
 	KWinComponents.ShortcutHandler {
 		name: "Toggle MouseStrip"
-		text: "Shows or hides MouseStrip"
+		text: "Shows or hides the read strip"
 		sequence: 'Meta+Ctrl+M'
 		onActivated: reloadStrip(!show)
 	}
 
+
     Component.onCompleted: {
-       // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
         reloadStrip(true);
     }
 }

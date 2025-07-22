@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-20 07:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: entrada estàndard:3
+msgid "Strip color:"
+msgstr ""
+
+#: entrada estàndard:6
+msgid "Strip height"
+msgstr ""
+
+#: entrada estàndard:9
+msgid "x"
+msgstr ""
+
+#: entrada estàndard:12
+msgid "Strip Opacity"
+msgstr ""
+
+#: entrada estàndard:16 entrada estàndard:32
+#, no-c-format
+msgid "%"
+msgstr ""
+
+#: entrada estàndard:19
+msgid "Border color:"
+msgstr ""
+
+#: entrada estàndard:22
+msgid "Border Height"
+msgstr ""
+
+#: entrada estàndard:25
+msgid "px"
+msgstr ""
+
+#: entrada estàndard:28
+msgid "Border Opacity"
+msgstr ""
+
+#: entrada estàndard:35
+msgid "Fill screen with border"
+msgstr ""
+
+#: entrada estàndard:38
+msgid "** Changes apply only after disabling and re-enabling the script **"
+msgstr ""
