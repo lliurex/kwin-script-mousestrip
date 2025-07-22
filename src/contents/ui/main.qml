@@ -4,10 +4,11 @@
     SPDX-License-Identifier: GPL-3.0
 */
 
+
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import QtQuick.Controls 2.12
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.plasma.core 2.0 as PlasmaCore;
 import org.kde.kwin 3.0 as KWinComponents
 
 Item {
@@ -133,6 +134,7 @@ Item {
         id: kwinReconfigure
         service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
+
 
     Component.onCompleted: {
 		KWin.registerShortcut("Toggle MouseStrip","Shows or hides the read strip","Meta+Ctrl+M",function(){reloadStrip(!show);});
