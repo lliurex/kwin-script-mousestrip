@@ -67,51 +67,37 @@ Item {
 
     function applyConfig(){
        var ReadStrip;
-       var BorderStripTop;
-       var BorderStripBottom;
        readConfig();
-       mainItemLoaderTop.source = "border.qml";
-       BorderStripTop=mainItemLoaderTop.item;
-       BorderStripTop.height=borderHeight;
-       BorderStripTop.color=rBorderColor;
-       BorderStripTop.opacity=borderOpacity;
-       BorderStripTop.y=0;
-       BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
-       mainItemLoaderBottom.source = "borderB.qml";
-       BorderStripBottom=mainItemLoaderBottom.item;
-       BorderStripBottom.height=borderHeight;
-       BorderStripBottom.color=rBorderColor;
-       BorderStripBottom.opacity=borderOpacity;
-	   console.log("Color: "+rBorderColor);
-       BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
+	   //console.log("Color: "+rBorderColor);
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
-       ReadStrip.color=rColor;
-	   ReadStrip.opacity=stripOpacity;
-       ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
+       ReadStrip.colorStrip=rColor;
+       ReadStrip.borderTopColor=rBorderColor;
+       ReadStrip.borderBottomColor=rBorderColor;
+	   ReadStrip.opacityStrip=stripOpacity;
+       ReadStrip.borderTopOpacity=borderOpacity;
+       ReadStrip.borderBottomOpacity=borderOpacity;
+	   if (fillBorder==false)
+	   {
+          ReadStrip.borderBottomHeight=borderHeight;
+          ReadStrip.borderTopHeight=borderHeight;
+	   }else{
+          ReadStrip.borderBottomHeight=KWinComponents.Workspace.workspaceHeight;;
+          ReadStrip.borderTopHeight=KWinComponents.Workspace.workspaceHeight;;
+	   }
+       ReadStrip.heightStrip=Kirigami.Units.gridUnit*2*root.stripHeight;
        ReadStrip.width= KWinComponents.Workspace.workspaceWidth;
+       ReadStrip.height= KWinComponents.Workspace.workspaceHeight;
     }
 
     function moveStrip(){
        var ReadStrip;
-       var BorderStripTop;
-       var BorderStripBottom;
        if (!mainItemLoader.item) {
            applyConfig();
        }
        ReadStrip=mainItemLoader.item;
-       BorderStripTop=mainItemLoaderTop.item;
-       BorderStripBottom=mainItemLoaderBottom.item;
-       ReadStrip.y=KWinComponents.Workspace.cursorPos.y-(ReadStrip.height*0.5);
-       BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
-       if (fillBorder==true)
-       {
-           BorderStripTop.height=ReadStrip.y;
-           BorderStripBottom.height=KWinComponents.Workspace.workspaceHeight-BorderStripBottom.y;
-       } else {
-           BorderStripTop.y=ReadStrip.y-borderHeight;
-           BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
-       }
+       ReadStrip.rectY=KWinComponents.Workspace.cursorPos.y-(ReadStrip.heightStrip*0.5);
+	   //console.log(ReadStrip.rectY)
     }
 
 
