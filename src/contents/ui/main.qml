@@ -33,6 +33,7 @@ Item {
     property int borderHeight: 14
     property bool fillBorder: false
 	property bool outputOnly:true
+	property bool autostart:true
     property bool show: true
 
     function reloadStrip(show=true){
@@ -122,6 +123,6 @@ Item {
 
     Component.onCompleted: {
 		KWin.registerShortcut("Toggle MouseStrip","Shows or hides the read strip","Meta+Ctrl+M",function(){reloadStrip(!show);});
-        reloadStrip(true);
+        reloadStrip(autostart);
     }
 }
