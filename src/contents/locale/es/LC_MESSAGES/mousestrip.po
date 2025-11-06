@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-20 07:06+0100\n"
-"PO-Revision-Date: 2024-12-20 07:12+0100\n"
+"POT-Creation-Date: 2025-11-06 15:21+0100\n"
+"PO-Revision-Date: 2025-11-06 15:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -60,5 +60,9 @@ msgid "Fill screen with border"
 msgstr "Rellenar la pantalla con el borde"
 
 #: entrada estÃ ndard:38
+msgid "Disable autostart (show with CTRL+WIN+M)"
+msgstr "No autoiniciar (mostrar con CTRL+WIN+M)"
+
+#: entrada estÃ ndard:41
 msgid "** Changes apply only after disabling and re-enabling the script **"
 msgstr "** Para aplicar los cambios hay que desactivar y activar el script **"
