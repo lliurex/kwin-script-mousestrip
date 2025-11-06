@@ -1,3 +1,9 @@
+kwin-script-mousestrip (1.5.0-0llx23) jammy; urgency=medium
+
+  * Reduce resources usage embedding all frames inside main item
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 06 Nov 2025 12:18:21 +0100
+
 kwin-script-mousestrip (1.4.1-0llx23) jammy; urgency=medium
 
   * Added translations
