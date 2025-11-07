@@ -130,7 +130,6 @@ Item {
 
 
     Component.onCompleted: {
-        reloadStrip(true);
        reloadStrip(autoStart);
     }
 }
