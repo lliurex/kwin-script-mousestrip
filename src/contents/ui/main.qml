@@ -130,6 +130,7 @@ Item {
 
 
     Component.onCompleted: {
+       autoStart= !(KWin.readConfig("AutoStart",true));
        reloadStrip(autoStart);
     }
 }
