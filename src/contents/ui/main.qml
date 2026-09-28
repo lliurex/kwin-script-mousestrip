@@ -24,14 +24,14 @@ Item {
     }
 
     property color bkgColor: "black"
-    property double stripOpacity: 15
+    property double stripOpacity: 1
     property color rColor: "black"
-    property int stripHeight: 2
-    property color borderColor: "yellow" 
+    property int stripHeight: 3
+    property color borderColor: "black" 
     property double borderOpacity: 30
     property color rBorderColor: "yellow"
     property int borderHeight: 14
-    property bool fillBorder: false
+    property bool fillBorder: true
 	property bool outputOnly:true
 	property bool autoStart:true
     property bool show: true

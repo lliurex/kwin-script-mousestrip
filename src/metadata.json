@@ -7,9 +7,9 @@
                 "Name": "Juanma1980"
             }
         ],
-        "Description": "Displays a reading guide over mouse position",
-        "Description[es]": "Muestra un marco horizontal a modo de guía bajo el puntero",
-        "Description[ca]": "Mostra un marc horitzontal a mode de guía sota el punter",
+        "Description": "Shows a stripe in screen to facilitate reading",
+        "Description[es]": "Muestra una guía en la pantalla para facilitar la lectura",
+        "Description[ca]": "Mostra una guia a la pantalla per facilitar la lectura",
         "Icon": "preferences-system-windows",
         "Id": "mousestrip",
         "License": "GPL",
