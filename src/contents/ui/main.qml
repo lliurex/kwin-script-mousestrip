@@ -130,6 +130,7 @@ Item {
 
 
     Component.onCompleted: {
+	   KWin.registerShortcut("Toggle MouseStrip","Shows or hides the read strip","Meta+Ctrl+M",function(){reloadStrip(!show);});
        autoStart= !(KWin.readConfig("AutoStart",false));
        reloadStrip(autoStart);
     }
