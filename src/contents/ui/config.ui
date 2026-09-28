@@ -112,10 +112,10 @@
         <string>%</string>
        </property>
        <property name="minimum">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="maximum">
-        <number>100</number>
+        <number>99</number>
        </property>
       </widget>
      </item>

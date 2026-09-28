@@ -27,7 +27,7 @@ Item {
     property double stripOpacity: 1
     property color rColor: "black"
     property int stripHeight: 3
-    property color borderColor: "black" 
+    property color borderColor: "white" 
     property double borderOpacity: 30
     property color rBorderColor: "yellow"
     property int borderHeight: 14
