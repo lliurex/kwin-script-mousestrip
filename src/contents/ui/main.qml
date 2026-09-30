@@ -24,14 +24,14 @@ Item {
     }
 
     property color bkgColor: "black"
-    property double stripOpacity: 15
+    property double stripOpacity: 1
     property color rColor: "black"
-    property int stripHeight: 2
-    property color borderColor: "yellow" 
+    property int stripHeight: 3
+    property color borderColor: "white" 
     property double borderOpacity: 30
     property color rBorderColor: "yellow"
     property int borderHeight: 14
-    property bool fillBorder: false
+    property bool fillBorder: true
 	property bool outputOnly:true
 	property bool autoStart:true
     property bool show: true
@@ -49,17 +49,17 @@ Item {
     }
     
     function readConfig(){
-        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,1));
-        stripOpacity= KWin.readConfig("StripOpacity",20)/100;
+        bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,0,1));
+        stripOpacity= KWin.readConfig("StripOpacity",root.stripOpacity)/100;
         rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,1.0);
-        stripHeight= KWin.readConfig("StripHeight",3);
-	    borderOpacity= KWin.readConfig("BorderOpacity",20)/100;
+        stripHeight= KWin.readConfig("StripHeight",root.stripHeight);
+	    borderOpacity= KWin.readConfig("BorderOpacity",root.borderOpacity)/100;
 		if (borderOpacity>=1) borderOpacity=0.99;
-        borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,borderOpacity));
+        borderColor= KWin.readConfig("BorderColor",Qt.rgba(1,1,1,borderOpacity));
 		/* If set to 100 graphics get corrupted */
         rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity);
-        borderHeight= KWin.readConfig("BorderHeight",2);
-        fillBorder= KWin.readConfig("FillBorder",false);
+        borderHeight= KWin.readConfig("BorderHeight",root.borderHeight);
+        fillBorder= KWin.readConfig("FillBorder",root.fillBorder);
     }
 
     function updateConfig(){
@@ -130,7 +130,8 @@ Item {
 
 
     Component.onCompleted: {
-       autoStart= !(KWin.readConfig("AutoStart",true));
+	   //KWin.registerShortcut("Toggle MouseStrip","Shows or hides the read strip","Meta+Ctrl+M",function(){reloadStrip(!show);});
+       autoStart= !(KWin.readConfig("AutoStart",false));
        reloadStrip(autoStart);
     }
 }
