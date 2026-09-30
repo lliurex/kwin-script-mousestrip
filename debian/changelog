@@ -1,3 +1,10 @@
+kwin-script-mousestrip (1.5.1) noble; urgency=medium
+
+  * Better defaults
+  * Bump version from Jammy
+
+ -- Juanma1980 <juanma1980@gmail.com>  Wed, 30 Sep 2026 07:36:40 +0200
+
 kwin-script-mousestrip (1.4.1-llx25) noble; urgency=medium
 
   * Improved opacity of borders
